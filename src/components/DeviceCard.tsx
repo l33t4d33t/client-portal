@@ -9,11 +9,6 @@ interface DeviceCardProps {
 
 export default function DeviceCard({ device, files, isActive, onClick }: DeviceCardProps) {
   const fileCount = files.length
-  const hasExpiringSoon = files.some((f) => {
-    if (!f.expiresAt) return false
-    const daysLeft = Math.ceil((new Date(f.expiresAt).getTime() - Date.now()) / 86400000)
-    return daysLeft <= 30 && daysLeft > 0
-  })
 
   return (
     <button
@@ -31,11 +26,6 @@ export default function DeviceCard({ device, files, isActive, onClick }: DeviceC
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v6h6" />
           </svg>
         </div>
-        {hasExpiringSoon && (
-          <span className="text-xs font-medium bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full shrink-0">
-            Expiring Soon
-          </span>
-        )}
       </div>
 
       <p className={`font-semibold text-sm ${isActive ? 'text-brand-700' : 'text-gray-900'}`}>{device.name}</p>

@@ -281,9 +281,6 @@ export default function ClientFilesPage({ user, onLogout }: ClientFilesPageProps
               </div>
             )}
             {filteredFiles.map((file) => {
-              const daysUntilExpiry = file.expiresAt ? getDaysUntilExpiry(file.expiresAt) : null
-              const isExpiringSoon = daysUntilExpiry !== null && daysUntilExpiry <= 30 && daysUntilExpiry > 0
-              const isExpired = daysUntilExpiry !== null && daysUntilExpiry <= 0
               const isNew = isNewFile(file.uploadedAt)
 
               return (
@@ -299,18 +296,9 @@ export default function ClientFilesPage({ user, onLogout }: ClientFilesPageProps
                         {file.version && (
                           <span className="text-xs font-mono bg-gray-100 text-gray-600 px-2 py-0.5 rounded shrink-0">{file.version}</span>
                         )}
-                        {isExpired && (
-                          <span className="text-xs font-semibold bg-red-100 text-red-600 px-2 py-0.5 rounded-full shrink-0">Expired</span>
-                        )}
-                        {isExpiringSoon && !isExpired && (
-                          <span className="text-xs font-semibold bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full shrink-0">
-                            Expires in {daysUntilExpiry}d
-                          </span>
-                        )}
                       </div>
                       <p className="text-xs text-gray-400 mt-0.5">
                         {file.size} &middot; {file.uploadedAt} &middot; {file.category}
-                        {file.expiresAt && ` · Expires ${file.expiresAt}`}
                       </p>
                     </div>
                   </div>
