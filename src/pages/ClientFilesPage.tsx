@@ -230,7 +230,7 @@ export default function ClientFilesPage({ user, onLogout }: ClientFilesPageProps
 
         {/* File upload — admin only */}
         {user.role === 'admin' && !loading && (
-          <FileUpload onFilesAdded={handleFilesAdded} />
+          <FileUpload onFilesAdded={handleFilesAdded} deviceId={activeDeviceId ?? ''} />
         )}
 
         {/* Search + category filters */}

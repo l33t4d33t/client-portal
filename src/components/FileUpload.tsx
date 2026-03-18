@@ -3,6 +3,7 @@ import { ClientFile } from '../types'
 
 interface FileUploadProps {
   onFilesAdded: (files: ClientFile[]) => void
+  deviceId: string
 }
 
 const EXTENSION_TYPE_MAP: Record<string, ClientFile['type']> = {
@@ -24,7 +25,7 @@ function formatBytes(bytes: number): string {
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`
 }
 
-export default function FileUpload({ onFilesAdded }: FileUploadProps) {
+export default function FileUpload({ onFilesAdded, deviceId }: FileUploadProps) {
   const [isDragging, setIsDragging] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -36,6 +37,7 @@ export default function FileUpload({ onFilesAdded }: FileUploadProps) {
       type: getFileType(file.name),
       uploadedAt: new Date().toISOString().split('T')[0],
       category: 'Uploads' as const,
+      deviceId,
     }))
     onFilesAdded(newFiles)
   }
