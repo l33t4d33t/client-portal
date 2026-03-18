@@ -1,5 +1,5 @@
 import { useState, FormEvent } from 'react'
-import { ADMIN_CREDENTIALS, MOCK_CLIENTS, COMPANY_NAME } from '../data/mockData'
+import { ADMIN_CREDENTIALS, MOCK_CLIENTS, COMPANY_NAME, SUPPORT_EMAIL, SALES_PHONE } from '../data/mockData'
 import { AuthUser } from '../types'
 
 interface LoginPageProps {
@@ -11,6 +11,7 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+  const [showForgot, setShowForgot] = useState(false)
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
@@ -90,7 +91,41 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
             >
               {loading ? 'Signing in...' : 'Sign In'}
             </button>
+
+            <div className="text-center">
+              <button
+                type="button"
+                onClick={() => setShowForgot(true)}
+                className="text-xs text-brand-600 hover:text-brand-700 hover:underline transition"
+              >
+                Forgot your username or password?
+              </button>
+            </div>
           </form>
+
+          {showForgot && (
+            <div className="mt-4 bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-800">
+              <div className="flex items-start justify-between gap-2">
+                <div>
+                  <p className="font-semibold mb-1">Need help accessing your account?</p>
+                  <p className="text-xs text-blue-700">Please contact our support team and we'll get you back in.</p>
+                  <div className="mt-2 space-y-1">
+                    <p className="text-xs"><span className="font-medium">Email:</span>{' '}
+                      <a href={`mailto:${SUPPORT_EMAIL}`} className="underline">{SUPPORT_EMAIL}</a>
+                    </p>
+                    <p className="text-xs"><span className="font-medium">Phone:</span>{' '}
+                      <a href={`tel:${SALES_PHONE}`} className="underline">{SALES_PHONE}</a>
+                    </p>
+                  </div>
+                </div>
+                <button onClick={() => setShowForgot(false)} className="text-blue-400 hover:text-blue-600 shrink-0">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          )}
 
           <div className="mt-6 border-t border-gray-100 pt-5 space-y-1.5">
             <p className="text-xs font-medium text-gray-400 mb-2">Demo credentials</p>
