@@ -248,7 +248,7 @@ export default function ClientFilesPage({ user, onLogout }: ClientFilesPageProps
                 className="w-full pl-9 pr-4 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent bg-white"
               />
             </div>
-            <div className="flex gap-2 flex-wrap">
+            <div className="flex gap-2 overflow-x-auto pb-1 sm:flex-wrap sm:pb-0">
               {categories.map((cat) => (
                 <button
                   key={cat}
@@ -284,12 +284,12 @@ export default function ClientFilesPage({ user, onLogout }: ClientFilesPageProps
               const isNew = isNewFile(file.uploadedAt)
 
               return (
-                <div key={file.id} className="flex items-center justify-between px-6 py-4 gap-4">
+                <div key={file.id} className="flex flex-col sm:flex-row sm:items-center justify-between px-4 sm:px-6 py-4 gap-3">
                   <div className="flex items-center gap-3 min-w-0 flex-1">
                     <div className="shrink-0">{FILE_ICONS[file.type]}</div>
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-2 flex-wrap">
-                        <p className="font-medium text-gray-900 truncate">{file.name}</p>
+                        <p className="font-medium text-gray-900 truncate text-sm">{file.name}</p>
                         {isNew && (
                           <span className="text-xs font-semibold bg-brand-100 text-brand-700 px-2 py-0.5 rounded-full shrink-0">New</span>
                         )}
@@ -306,7 +306,7 @@ export default function ClientFilesPage({ user, onLogout }: ClientFilesPageProps
                   <button
                     onClick={() => handleDownload(file)}
                     disabled={downloading === file.id}
-                    className={`shrink-0 flex items-center gap-1.5 text-sm font-medium px-4 py-2 rounded-lg transition ${
+                    className={`shrink-0 self-end sm:self-auto flex items-center gap-1.5 text-sm font-medium px-4 py-2 rounded-lg transition ${
                       downloaded.has(file.id)
                         ? 'bg-green-50 text-green-600 border border-green-200'
                         : 'bg-gray-100 text-gray-700 hover:bg-brand-600 hover:text-white border border-transparent'
