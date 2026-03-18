@@ -94,7 +94,7 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
 
           <div className="mt-6 border-t border-gray-100 pt-5 space-y-1.5">
             <p className="text-xs font-medium text-gray-400 mb-2">Demo credentials</p>
-            <p className="text-xs text-gray-400"><span className="font-medium text-gray-500">Admin:</span> admin@apexengineering.com / admin1234</p>
+            <p className="text-xs text-gray-400"><span className="font-medium text-gray-500">Admin:</span> admin@multiplexbeverage.com / admin1234</p>
             <p className="text-xs text-gray-400"><span className="font-medium text-gray-500">Sarah:</span> sarah@acmecorp.com / sarah1234</p>
             <p className="text-xs text-gray-400"><span className="font-medium text-gray-500">James:</span> james@novastudio.io / james1234</p>
             <p className="text-xs text-gray-400"><span className="font-medium text-gray-500">Priya:</span> priya@greenleaf.co / priya1234</p>

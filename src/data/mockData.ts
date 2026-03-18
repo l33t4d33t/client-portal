@@ -1,11 +1,11 @@
 import { Client } from '../types'
 
-export const COMPANY_NAME = 'Apex Engineering'
-export const SUPPORT_EMAIL = 'support@apexengineering.com'
+export const COMPANY_NAME = 'Multiplex Beverage'
+export const SUPPORT_EMAIL = 'support@multiplexbeverage.com'
 export const SUPPORT_PHONE = '+1 (800) 555-0192'
 
 export const ADMIN_CREDENTIALS = {
-  email: 'admin@apexengineering.com',
+  email: 'admin@multiplexbeverage.com',
   password: 'admin1234',
 }
 
