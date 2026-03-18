@@ -1,8 +1,8 @@
-import { SUPPORT_EMAIL, SUPPORT_PHONE, COMPANY_NAME } from '../data/mockData'
+import { SUPPORT_EMAIL, SUPPORT_ADDRESS, SALES_PHONE, SERVICE_PHONE, COMPANY_NAME } from '../data/mockData'
 
 export default function SupportBlock() {
   return (
-    <div className="mt-8 bg-white rounded-2xl border border-gray-200 p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+    <div className="mt-8 bg-white rounded-2xl border border-gray-200 p-6 flex flex-col sm:flex-row items-start justify-between gap-6">
       <div className="flex items-center gap-4">
         <div className="w-10 h-10 rounded-xl bg-brand-100 flex items-center justify-center shrink-0">
           <svg className="w-5 h-5 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -12,9 +12,10 @@ export default function SupportBlock() {
         <div>
           <p className="font-semibold text-gray-900 text-sm">Need help?</p>
           <p className="text-xs text-gray-500 mt-0.5">{COMPANY_NAME} support is available Monday–Friday, 8am–6pm EST.</p>
+          <p className="text-xs text-gray-400 mt-1">{SUPPORT_ADDRESS}</p>
         </div>
       </div>
-      <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
+      <div className="flex flex-col gap-2.5">
         <a
           href={`mailto:${SUPPORT_EMAIL}`}
           className="flex items-center gap-2 text-sm text-brand-600 hover:text-brand-700 font-medium transition"
@@ -24,15 +25,23 @@ export default function SupportBlock() {
           </svg>
           {SUPPORT_EMAIL}
         </a>
-        <span className="hidden sm:block text-gray-300">|</span>
         <a
-          href={`tel:${SUPPORT_PHONE}`}
+          href={`tel:${SALES_PHONE}`}
           className="flex items-center gap-2 text-sm text-brand-600 hover:text-brand-700 font-medium transition"
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
           </svg>
-          {SUPPORT_PHONE}
+          <span><span className="text-gray-500 font-normal">Sales:</span> {SALES_PHONE}</span>
+        </a>
+        <a
+          href={`tel:${SERVICE_PHONE}`}
+          className="flex items-center gap-2 text-sm text-brand-600 hover:text-brand-700 font-medium transition"
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          <span><span className="text-gray-500 font-normal">Service:</span> {SERVICE_PHONE}</span>
         </a>
       </div>
     </div>

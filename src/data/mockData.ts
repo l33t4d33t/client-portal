@@ -3,6 +3,9 @@ import { Client } from '../types'
 export const COMPANY_NAME = 'Multiplex Beverage'
 export const SUPPORT_EMAIL = 'support@multiplexbeverage.com'
 export const SUPPORT_PHONE = '+1 (800) 555-0192'
+export const SUPPORT_ADDRESS = '645 Park East Blvd Suite 5, New Albany, IN 47150'
+export const SALES_PHONE = '800-367-4233'
+export const SERVICE_PHONE = '844-724-2273'
 
 export const ADMIN_CREDENTIALS = {
   email: 'admin@multiplexbeverage.com',
